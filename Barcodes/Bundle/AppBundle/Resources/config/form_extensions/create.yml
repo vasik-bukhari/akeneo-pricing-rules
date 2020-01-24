@@ -1,0 +1,73 @@
+extensions:
+    barcodes-pricingrules-create-modal:
+        module: pim/form/common/creation/modal
+        config:
+            labels:
+                title: pim_common.create
+                subTitle: 'pricing rule'
+            # picture: illustrations/User.svg
+            successMessage: 'rule saved'
+            editRoute: barcodes_pricingrules_edit
+            postUrl: barcodes_pricingrules_new
+            routerKey: id
+            entityIdentifierParamName: meta.id
+
+    barcodes-pricingrules-create-modal-manufacturer:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-create-modal
+        position: 10
+        targetZone: fields
+        config:
+            fieldName: manufacturer
+            label: 'manufacturer'
+            required: true
+
+    barcodes-pricingrules-create-modal-category:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-create-modal
+        position: 10
+        targetZone: fields
+        config:
+            fieldName: category
+            label: 'category'
+            required: true
+
+    barcodes-pricingrules-create-modal-product:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-create-modal
+        position: 10
+        targetZone: fields
+        config:
+            fieldName: product
+            label: 'product'
+            required: true
+
+    barcodes-pricingrules-create-modal-operator:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-create-modal
+        position: 10
+        targetZone: fields
+        config:
+            fieldName: operator
+            label: 'operator'
+            required: true
+
+    barcodes-pricingrules-create-modal-value:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-create-modal
+        position: 10
+        targetZone: fields
+        config:
+            fieldName: value
+            label: 'value'
+            required: true
+
+    barcodes-pricingrules-create-modal-channel:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-create-modal
+        position: 10
+        targetZone: fields
+        config:
+            fieldName: channel
+            label: 'channel'
+            required: true

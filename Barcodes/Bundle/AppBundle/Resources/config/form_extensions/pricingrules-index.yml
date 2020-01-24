@@ -1,0 +1,74 @@
+extensions:
+    barcodes-pricingrules-index:
+      module: pim/common/simple-view
+      config:
+          template: pim/template/common/default-template
+
+    barcodes-pricingrules-index-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: barcodes-pricingrules-index
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-settings
+            item: barcodes-pricing
+
+    barcodes-pricingrules-index-user-navigation:
+        module: pim/menu/user-navigation
+        parent: barcodes-pricingrules-index
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    barcodes-pricingrules-index-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: barcodes-pricingrules-index
+        position: 1000
+
+    barcodes-pricingrules-index-grid-container:
+        module: pim/common/simple-view
+        parent: barcodes-pricingrules-index
+        targetZone: content
+        config:
+            template: pim/template/form/index/index
+
+    barcodes-pricingrules-index-grid-title:
+        module: pim/common/grid-title
+        parent: barcodes-pricingrules-index
+        targetZone: title
+        config:
+            title: barcodes.page_title.index
+
+    barcodes-pricingrules-index-grid-filters-list:
+        module: oro/datafilter/filters-list
+        parent: barcodes-pricingrules-index-grid-container
+        targetZone: filters
+
+    barcodes-pricingrules-index-grid-filters-manage:
+        module: oro/datafilter/filters-button
+        parent: barcodes-pricingrules-index-grid-container
+        targetZone: filters
+
+    barcodes-pricingrules-index-pagination:
+        module: oro/datagrid/pagination-input
+        parent: barcodes-pricingrules-index-grid-container
+        targetZone: toolbar
+        config:
+            gridName: barcodes-pricingrules-grid
+
+    barcodes-pricingrules-index-grid:
+        module: pim/form/common/index/grid
+        parent: barcodes-pricingrules-index-grid-container
+        position: 1000
+        config:
+            alias: barcodes-pricingrules-grid
+
+    barcodes-pricingrules-index-create-button:
+        module: pim/form/common/index/create-button
+        parent: barcodes-pricingrules-index
+        targetZone: buttons
+        position: 100
+        aclResourceId: pim_user_user_create
+        config:
+           title: 'create new rule'
+           modalForm: barcodes-pricingrules-create-modal 

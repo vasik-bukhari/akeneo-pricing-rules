@@ -1,0 +1,12 @@
+config:
+    paths:
+        barcodes/pricingrules: barcodesapp/js/controller/pricingrules
+        barcodes/pricingrules/edit: barcodesapp/js/controller/pricingrules-edit
+
+    config:
+        pim/controller-registry:
+            controllers:
+                barcodes_pricingrules_index:
+                    module: barcodes/pricingrules
+                barcodes_pricingrules_edit:
+                    module: barcodes/pricingrules/edit

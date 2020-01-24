@@ -1,0 +1,128 @@
+extensions:
+    barcodes-pricingrules-edit:
+      module: pim/form/common/edit-form
+      # module: pim/common/simple-view
+      # config:
+      #     template: pim/template/common/default-template
+
+    barcodes-pricingrules-edit-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: barcodes-pricingrules-edit
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-settings
+            item: barcodes-pricing
+
+    barcodes-pricingrules-edit-user-navigation:
+        module: pim/menu/user-navigation
+        parent: barcodes-pricingrules-edit
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    barcodes-pricingrules-edit-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: barcodes-pricingrules-edit
+        position: 1000
+
+    barcodes-pricingrules-edit-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: barcodes-pricingrules-edit
+        targetZone: buttons
+        position: 110
+
+    barcodes-pricingrules-edit-form-tabs:
+        module: pim/form/common/form-tabs
+        parent: barcodes-pricingrules-edit
+        targetZone: content
+        position: 90
+
+    # General tab
+    barcodes-pricingrules-edit-general-tab:
+        module: pim/common/tab
+        parent: barcodes-pricingrules-edit-form-tabs
+        targetZone: container
+        position: 10
+        config:
+            label: pim_common.general_properties
+
+    barcodes-pricingrules-edit-general-tab-content:
+        module: pim/common/simple-view
+        parent: barcodes-pricingrules-edit-general-tab
+        position: 10
+        config:
+            template: pim/template/form/tab/section
+            templateParams:
+                sectionTitle: ''
+                dropZone: content
+
+    barcodes-pricingrules-edit-manufacturer:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 20
+        targetZone: content
+        config:
+            fieldName: manufacturer
+            label: 'manufacturer'
+            required: true
+
+    barcodes-pricingrules-edit-category:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 30
+        targetZone: content
+        config:
+            fieldName: category
+            required: true
+            label: category
+
+    barcodes-pricingrules-edit-product:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 40
+        targetZone: content
+        config:
+            fieldName: product
+            label: product
+            required: true
+
+    barcodes-pricingrules-edit-pricetype:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 50
+        targetZone: content
+        config:
+            fieldName: pricetype
+            required: true
+            label: pricetype
+
+    barcodes-pricingrules-edit-operator:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 60
+        targetZone: content
+        config:
+            fieldName: operator
+            label: operator
+            required: true
+
+    barcodes-pricingrules-edit-value:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 70
+        targetZone: content
+        config:
+            fieldName: value
+            required: true
+            label: value
+
+    barcodes-pricingrules-edit-channel:
+        module: pim/form/common/fields/text
+        parent: barcodes-pricingrules-edit-general-tab-content
+        position: 80
+        targetZone: content
+        config:
+            fieldName: channel
+            required: true
+            label: channel

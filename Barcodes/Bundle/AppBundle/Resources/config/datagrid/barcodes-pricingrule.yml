@@ -1,0 +1,120 @@
+datagrid:
+    barcodes-pricingrules-grid:
+        extended_entity_name: Barcodes\Bundle\AppBundle\Entity\Pricingrule
+        options:
+            entityHint: Pricingrule
+            manageFilters: false
+        source:
+            acl_resource: pim_user_user_index
+            type: orm
+            entity: 'Barcodes\Bundle\AppBundle\Entity\Pricingrule'
+            query:
+                select:
+                    - pl.id
+                    - pl.manufacturer
+                    - pl.category
+                    - pl.product
+                    - pl.pricetype
+                    - pl.operator
+                    - pl.value
+                    - pl.channel
+                    - pl.createdAt
+                    - pl.updatedAt
+                from:
+                    - { table: 'Barcodes\Bundle\AppBundle\Entity\Pricingrule', alias: pl }
+        columns:
+            id:
+                label: 'id'
+                frontend_type: label
+            manufacturer:
+                label: 'manufacturer'
+                frontend_type: label
+            category:
+                label: 'category'
+                frontend_type: label
+            product:
+                label: 'product'
+                frontend_type: label
+            pricetype:
+                label: 'pricetype'
+                frontend_type: label
+            operator:
+                label: 'operator'
+                frontend_type: label
+            value:
+                label: 'value'
+                frontend_type: label
+            channel:
+                label: 'channel'
+                frontend_type: label
+            createdAt:
+                label: 'createdAt'
+                frontend_type: datetime
+            updatedAt:
+                label: 'updatedAt'
+                frontend_type: datetime
+        properties:
+            id: ~
+            update_link:
+                type: url
+                route: barcodes_pricingrules_edit
+                params:
+                    - id
+            delete_link:
+                type: url
+                route: barcodes_pricingrules_delete
+                params:
+                    - id
+        sorters:
+            columns:
+                id:
+                    data_name: pl.id
+                manufacturer:
+                    data_name: pl.manufacturer
+                category:
+                    data_name: pl.category
+                product:
+                    data_name: pl.product
+                pricetype:
+                    data_name: pl.pricetype
+                operator:
+                    data_name: pl.operator
+                value:
+                    data_name: pl.value
+                channel:
+                    data_name: pl.channel
+                createdAt:
+                    data_name: pl.createdAt
+                updatedAt:
+                    data_name: pl.updatedAt
+            default:
+                id: '%oro_datagrid.extension.orm_sorter.class%::DIRECTION_ASC'
+        filters:
+            columns:
+                product:
+                    type: search
+                    data_name: pl.product
+                channel:
+                    type: string
+                    data_name: pl.channel
+                category:
+                    type: string
+                    data_name: pl.category
+                manufacturer:
+                    type: string
+                    data_name: pl.manufacturer
+        actions:
+            update:
+                launcherOptions:
+                    className: AknIconButton AknIconButton--small AknIconButton--edit
+                type:          navigate
+                label:         pim_common.update
+                link:          update_link
+                rowAction:     true
+            delete:
+                launcherOptions:
+                    className: AknIconButton AknIconButton--small AknIconButton--trash
+                type:          delete
+                label:         pim_common.delete
+                link:          delete_link
+                # acl_resource:  pim_user_user_remove
