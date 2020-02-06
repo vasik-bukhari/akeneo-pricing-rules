@@ -1,3 +1,0 @@
-barcodes_app_barcodes_pricingrules:
-    resource: "@BarcodesAppBundle/Resources/config/routing/pricingrule.yml"
-    prefix:   /barcodes/pricingrules

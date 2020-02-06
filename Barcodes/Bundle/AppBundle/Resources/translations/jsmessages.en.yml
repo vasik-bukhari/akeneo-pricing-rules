@@ -1,8 +1,0 @@
-barcodes:
-    page_title:
-        index: Pricing rules
-        add: Add new pricing rule
-        edit: Edit price rule
-    module:
-        create: 
-            button: Create new rule
