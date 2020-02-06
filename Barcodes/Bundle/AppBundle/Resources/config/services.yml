@@ -1,0 +1,62 @@
+parameters:
+  barcodes.entity.pricingrule.class: 'Barcodes\Bundle\AppBundle\Entity\Pricingrule'
+  barcodes.repository.pricingrule.class: 'Barcodes\Bundle\AppBundle\Repository\PricingruleRepository'
+services:
+  barcodes.repository.pricingrule:
+    class: '%barcodes.repository.pricingrule.class%'
+    factory: 'doctrine.orm.entity_manager:getRepository'
+    arguments: ['%barcodes.entity.pricingrule.class%']
+    tags:
+      - { name: 'doctrine.repository_service' }  
+  barcodes.remover.pricingrule:
+    class: '%pim_catalog.remover.base.class%'
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@event_dispatcher'
+      - '%barcodes.entity.pricingrule.class%'
+  barcodes.updater.pricingrule:
+    class: 'Barcodes\Bundle\AppBundle\Structure\Doctrine\ORM\PricingruleUpdater'
+  barcodes.saver.pricingrule:
+    class: '%akeneo_storage_utils.saver.base.class%'
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@event_dispatcher'
+      - '%barcodes.entity.pricingrule.class%'
+  barcodes.factory.pricingrule:
+    class: '%akeneo_storage_utils.factory.simple.class%'
+    arguments:
+      - '%barcodes.entity.pricingrule.class%'
+  barcodes.pricingrule.controller:
+    class: Barcodes\Bundle\AppBundle\Controller\PricingruleController
+    arguments:
+      - '@barcodes.repository.pricingrule'
+      # - '@pim_internal_api_serializer'
+      - '@barcodes.normalizer.standard.pricingrule'
+      - '@barcodes.remover.pricingrule'
+      - '@barcodes.updater.pricingrule'
+      - '@barcodes.saver.pricingrule'
+      - '@barcodes.factory.pricingrule'
+      - '@validator'
+
+  #Normalizers
+
+  barcodes.normalizer.standard.pricingrule:
+    class: 'Barcodes\Bundle\AppBundle\Structure\Component\Normalizer\Standard\PricingruleNormalizer'
+    tags:
+      - { name: pim_standard_format_serializer.normalizer, priority: 90 }
+
+  barcodes.normalizer.pricingrule:
+    class: 'Barcodes\Bundle\AppBundle\Structure\Component\Normalizer\InternalApi\PricingruleNormalizer'
+    arguments:
+      - '@pim_standard_format_serializer'
+      - '@pim_versioning.repository.version'
+      - '@pim_enrich.normalizer.version'
+    tags:
+      - { name: pim_internal_api_serializer.normalizer }
+
+  barcodes.normalizer.flat.pricingrule:
+    class: 'Barcodes\Bundle\AppBundle\Structure\Component\Normalizer\Versioning\PricingruleNormalizer'
+    arguments:
+      - '@barcodes.normalizer.standard.pricingrule'
+    tags:
+      - { name: pim_versioning.serializer.normalizer, priority: 90 }      

@@ -1,0 +1,44 @@
+barcodes_pricingrules_index:
+    path:     /
+    defaults: { _controller: "BarcodesAppBundle:Pricingrule:index" }
+    methods:  GET
+
+barcodes_pricingrules_indexnew:
+    path:     /indexnew
+    defaults: { _controller: "BarcodesAppBundle:Pricingrule:index" }
+    methods:  GET
+
+barcodes_pricingrules_show:
+    path:     /{id}/show
+    defaults: { _controller: "BarcodesAppBundle:Pricingrule:show" }
+    methods:  GET
+
+barcodes_pricingrules_new:
+    path:     /new
+    defaults: { _controller: barcodes.pricingrule.controller:newAction }
+    # defaults: { _controller: "BarcodesAppBundle:Pricingrule:new" }
+    methods:  [GET, POST]
+
+barcodes_pricingrules_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "barcodes.pricingrule.controller:editAction" }
+    methods:  [GET, POST]
+
+barcodes_pricingrules_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "barcodes.pricingrule.controller:deleteAction" }
+    methods:  DELETE
+    requirements:
+        id: '[0-9]+'
+
+barcodes_pricingrules_rest_get:
+    path: /rest/{identifier}
+    defaults: { _controller: barcodes.pricingrule.controller:getAction }
+    methods: [GET]
+    requirements:
+        identifier: '[0-9]+'
+
+barcodes_pricingrules_rest_put:
+    path: /rest
+    defaults: { _controller: barcodes.pricingrule.controller:putAction }
+    methods: [PUT]        

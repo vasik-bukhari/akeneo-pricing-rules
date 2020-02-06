@@ -1,0 +1,26 @@
+barcodes:
+    page_title:
+        index: "] -Inf, 1] {{ count }} Pricing rule |] 1, Inf [{{ count }} Pricing rules"
+        add: "Add new pricing rule"
+        edit: "Edit price rule"
+    module:
+        create: 
+            button: Create new rule
+pim_enrich:
+    entity:
+        pricingrule:
+            module:
+                delete:
+                    confirm: Do you want to detete?
+            flash:
+                create:
+                    success: "Pricing rule successfully created"
+                update:
+                    success: Pricing rule updated successfully
+                    fail: "Error: can't create a new pricing rule"
+                    fields_not_ready: "Error: pricing rule fields not ready"
+                delete:
+                    success: Pricing rule deleted successfully
+                    fail: "Error: can't delete brand"
+pim_title:
+    barcodes_pricingrules_index: Ricing rules

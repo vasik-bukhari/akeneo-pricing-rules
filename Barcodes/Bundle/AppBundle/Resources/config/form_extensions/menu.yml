@@ -1,0 +1,11 @@
+extensions:
+    barcodes-pricing:
+        module: pim/menu/item
+        parent: pim-menu-settings-navigation-block
+        position: 210
+        #targetZone: item
+        config:
+            title: 'Pricing Rules'
+            iconModifier: iconCard
+            to: barcodes_pricingrules_index
+

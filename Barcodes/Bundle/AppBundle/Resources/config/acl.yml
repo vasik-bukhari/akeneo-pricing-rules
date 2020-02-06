@@ -1,0 +1,16 @@
+barcodes_pricingrule_index:
+  type: action
+  label: 'Pricing rule list'
+  group_name: barcodes.acl_group.pricingrule
+barcodes_pricingrule_new:
+  type: action
+  label: 'Create'
+  group_name: barcodes.acl_group.pricingrule
+barcodes_pricingrule_edit:
+  type: action
+  label: 'Edit'
+  group_name: barcodes.acl_group.pricingrule
+barcodes_pricingrule_remove:
+  type: action
+  label: 'Delete'
+  group_name: barcodes.acl_group.pricingrule

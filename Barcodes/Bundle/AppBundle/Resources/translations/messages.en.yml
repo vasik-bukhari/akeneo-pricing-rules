@@ -1,0 +1,14 @@
+barcodes:
+    acl_group:
+        pricingrule: Pricing rules
+pim_enrich:
+    entity:
+        pricingrule:
+            module:
+                delete:
+                    confirm: Do you want to detete?
+            flash:
+                update:
+                    success: Pricing rule updated successfully
+pim_title:
+    barcodes_pricingrules_index: Ricing rules

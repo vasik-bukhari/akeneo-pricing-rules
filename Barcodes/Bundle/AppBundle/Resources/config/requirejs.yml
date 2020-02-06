@@ -1,0 +1,30 @@
+config:
+    paths:
+        barcodes/pricingrules: barcodesapp/js/controller/pricingrules
+        barcodes/pricingrules/edit: barcodesapp/js/controller/pricingrules-edit
+        barcodes/template/pricingrule/index: barcodesapp/template/pricingrule/index.html
+        barcodes/pricingrule/remove: barcodesapp/js/controller/remove
+        barcodes/remover/pricingrule: pimui/js/remover/channel
+
+    config:
+        barcodes_pricingrules_edit:
+            module: barcodes/pricingrules
+            aclResourceId: barcodes_pricingrule_edit
+            config:
+              entity: pricingrule
+        pim/fetcher-registry:
+            fetchers:
+                default: pim/base-fetcher
+                pricingrule:
+                  module: pim/base-fetcher
+                  options:
+                    urls:
+                      get: barcodes_pricingrules_rest_get
+        pim/controller-registry:
+            controllers:
+                barcodes_pricingrules_index:
+                    module: barcodes/pricingrules
+                    aclResourceId: barcodes_pricingrule_index
+                barcodes_pricingrules_edit:
+                    module: barcodes/pricingrules/edit
+                    aclResourceId: barcodes_pricingrule_edit
